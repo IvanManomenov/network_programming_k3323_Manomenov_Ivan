@@ -1,3 +1,19 @@
+University: [ITMO University](https://itmo.ru/ru/)
+
+Faculty: [FICT](https://fict.itmo.ru)
+
+Course: [Network programming](https://itmo-ict-faculty.github.io/network-programming)
+
+Year: 2024/2025
+
+Group: K3323
+
+Author: Manomenov Ivan
+
+Lab: Lab2
+
+Date of create: 08.06.25
+
 # Ход работы:
 1. Анологично первой лабе создаем второго клиента, проверяем, что поинги проходят
    - с клиента
