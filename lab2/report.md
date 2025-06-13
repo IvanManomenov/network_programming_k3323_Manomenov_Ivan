@@ -115,7 +115,27 @@
 
    - Конфиги
 
-   - ![image](https://github.com/user-attachments/assets/ac097c86-71b7-4c6e-8616-af10d977a4b6)
+     ![image](https://github.com/user-attachments/assets/ac097c86-71b7-4c6e-8616-af10d977a4b6)
+
+   - Пинги
+     С Клиента 10.0.0.3
+     
+     ![image](https://github.com/user-attachments/assets/01d5e6f3-d82b-47c0-b1a5-2d4db37ff546)
+
+     С клиента 10.0.0.2
+
+     ![image](https://github.com/user-attachments/assets/017a61ef-6b76-4ef5-a64a-6c7567b8d534)
+
+     С сервера
+
+     ![image](https://github.com/user-attachments/assets/b98df67c-02ce-47c6-a2f3-d130cb24ac2c)
+     
+6. Схема
+
+   ![image](https://github.com/user-attachments/assets/3695722f-0f31-4a0c-ae70-b682b7640140)
+
+
+
 
 
 
