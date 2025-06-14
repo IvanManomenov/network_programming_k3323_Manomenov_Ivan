@@ -1,0 +1,27 @@
+- name: Get device serial number and reconfigure netbox
+  hosts: all
+  gather_facts: false
+  vars:
+    api_endpoint: http://158.160.185.212:8000
+    token: 35221190ee5901f2d73e600826cfb293ad726330
+  tasks:
+
+  - name: Get serial number
+    community.routeros.command:
+      commands:
+        - /system/license/print
+    register: sn
+
+  - name: Set facts
+    set_fact:
+      index: "{{ groups['all'].index(inventory_hostname) | int }}"
+      devices: "{{ query('netbox.netbox.nb_lookup', 'devices', api_endpoint=api_endpoint, token=token, validate_certs=false) }}"
+
+  - name: Reconfigure netbox serial number of device
+    netbox_device:
+      netbox_url: "{{ api_endpoint }}"
+      netbox_token: "{{ token }}"
+      validate_certs: false
+      data:
+        name: "{{ devices[index | int].value.name }}"
+        serial: "{{ sn.stdout_lines[0][0] | regex_replace('system-id:', '')}}"
