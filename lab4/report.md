@@ -4,7 +4,7 @@
    ![image](https://github.com/user-attachments/assets/b94c0b88-762a-4fcd-aae9-9e59af88327d)
 
 
-Implementing Basic Forwarding:
+**Implementing Basic Forwarding:**
 1. С коробки ```make run``` естественно блять не работает. Нужно:
     - В utils/Makefile в строке с build/basic.p4.p4info.txtpb заменить .txtpb на .txt
     - Во всех json в triandle-pogo в строке с build/basic.p4.p4info.txtpb заменить .txtpb на .txt
