@@ -14,7 +14,7 @@
 
     ![image](https://github.com/user-attachments/assets/a32e53b8-05bc-4663-b42a-192628cd40ab)
 
-3. Правим скрипт в TODO'шках:
+3. Правим TODO'шки в скрипте [basic.p4](https://github.com/IvanManomenov/network_programming_k3323_Manomenov_Ivan/blob/main/lab4/basic.p4):
    ```
    parser MyParser(packet_in packet,
                    out headers hdr,
@@ -84,5 +84,11 @@
 5. Проверяем, что пингуется (алилуя блять)
 
    ![image](https://github.com/user-attachments/assets/a298f2f7-df42-40e5-b5ea-40b49113bac3)
+
+
+**Implementing Basic Tunneling**:
+1. Снова исправляем json'ы, чтобы заработало блять
+2.  Правим TODO'шки в скрипте 
+
 
 
