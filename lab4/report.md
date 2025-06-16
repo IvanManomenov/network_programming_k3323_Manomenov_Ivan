@@ -88,7 +88,110 @@
 
 **Implementing Basic Tunneling**:
 1. Снова исправляем json'ы, чтобы заработало блять
-2.  Правим TODO'шки в скрипте 
+2.  Правим TODO'шки в скрипте [basic_tunnel.p4](https://github.com/IvanManomenov/network_programming_k3323_Manomenov_Ivan/blob/main/lab4/basic_tunnel.p4):
+   ```
+   parser MyParser(packet_in packet,
+                   out headers hdr,
+                   inout metadata meta,
+                   inout standard_metadata_t standard_metadata) {
+   
+       state start {
+           transition parse_ethernet;
+       }
+   
+       state parse_ethernet {
+           packet.extract(hdr.ethernet);
+           transition select(hdr.ethernet.etherType) {
+               TYPE_MYTUNNEL: parse_myTunnel;
+               TYPE_IPV4: parse_ipv4;
+               default: accept;
+           }
+       }
+   
+       state parse_myTunnel {
+           packet.extract(hdr.myTunnel);
+           transition select(hdr.myTunnel.proto_id) {
+               TYPE_IPV4: parse_ipv4;
+               default: accept;
+           }
+       }
+   
+       state parse_ipv4 {
+           packet.extract(hdr.ipv4);
+           transition accept;
+       }
+   
+   }
+   ```
+
+   ```
+   control MyIngress(inout headers hdr,
+                     inout metadata meta,
+                     inout standard_metadata_t standard_metadata) {
+       action drop() {
+           mark_to_drop(standard_metadata);
+       }
+   
+       action ipv4_forward(macAddr_t dstAddr, egressSpec_t port) {
+           standard_metadata.egress_spec = port;
+           hdr.ethernet.srcAddr = hdr.ethernet.dstAddr;
+           hdr.ethernet.dstAddr = dstAddr;
+           hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
+       }
+   
+       table ipv4_lpm {
+           key = {
+               hdr.ipv4.dstAddr: lpm;
+           }
+           actions = {
+               ipv4_forward;
+               drop;
+               NoAction;
+           }
+           size = 1024;
+           default_action = drop();
+       }
+   
+       action myTunnel_forward(egressSpec_t port) {
+           standard_metadata.egress_spec = port;
+       }
+   
+       table myTunnel_exact {
+           key = {
+               hdr.myTunnel.dst_id: exact;
+           }
+           actions = {
+               myTunnel_forward;
+               drop;
+           }
+           size = 1024;
+           default_action = drop();
+       }
+   
+       apply {
+           if (hdr.ipv4.isValid() && !hdr.myTunnel.isValid()) {
+               // Process only non-tunneled IPv4 packets
+               ipv4_lpm.apply();
+           }
+   
+           if (hdr.myTunnel.isValid()) {
+               // process tunneled packets
+               myTunnel_exact.apply();
+           }
+       }
+   }
+   ```
+
+   ```
+   control MyDeparser(packet_out packet, in headers hdr) {
+       apply {
+           packet.emit(hdr.ethernet);
+           packet.emit(hdr.myTunnel);
+           packet.emit(hdr.ipv4);
+       }
+   }
+   ```
+   
 
 
 
