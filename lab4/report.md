@@ -88,7 +88,7 @@
 
 **Implementing Basic Tunneling**:
 1. Снова исправляем json'ы, чтобы заработало блять
-2.  Правим TODO'шки в скрипте [basic_tunnel.p4](https://github.com/IvanManomenov/network_programming_k3323_Manomenov_Ivan/blob/main/lab4/basic_tunnel.p4):
+2. Правим TODO'шки в скрипте [basic_tunnel.p4](https://github.com/IvanManomenov/network_programming_k3323_Manomenov_Ivan/blob/main/lab4/basic_tunnel.p4):
    ```
    parser MyParser(packet_in packet,
                    out headers hdr,
@@ -191,6 +191,33 @@
        }
    }
    ```
+3. Проверяем работу без туннелирования
+   - ```mininet> xterm h1 h2```
+   - В h2 запускаем ```./recieve.py```
+
+      ![image](https://github.com/user-attachments/assets/80a2b388-e86a-475f-86ce-685d29835839)
+
+     
+   - В h1 ```./send.py 10.0.2.2 "P4 is cool"```
+     
+     ![image](https://github.com/user-attachments/assets/5432fd1d-3533-4c25-809a-7d60a66f461e)
+
+   - Ожидаемо: h2 получает сообщение, пакет содержит Ethernet + IPv4 + TCP + сообщение
+
+4. C туннелированием
+   - в h1 запускаем
+     
+     ![image](https://github.com/user-attachments/assets/a78fc9af-0a98-466b-b45a-8cf88b4368d7)
+
+   - в h2 получаем сообщение
+
+     ![image](https://github.com/user-attachments/assets/69707bd9-5d9d-49c7-8fdf-d6e785a6072a)
+
+
+
+     
+
+
    
 
 
