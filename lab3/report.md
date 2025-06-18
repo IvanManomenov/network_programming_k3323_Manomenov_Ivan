@@ -10,9 +10,9 @@ Group: K3323
 
 Author: Manomenov Ivan
 
-Lab: Lab1
+Lab: Lab3
 
-Date of create: 08.06.25
+Date of create: 13.06.25
 
 # Ход работы
 1. Проверяем связанность:
