@@ -1,15 +1,31 @@
-# Ход работы:
+University: [ITMO University](https://itmo.ru/ru/)
+
+Faculty: [FICT](https://fict.itmo.ru)
+
+Course: [Network programming](https://itmo-ict-faculty.github.io/network-programming)
+
+Year: 2024/2025
+
+Group: K3323
+
+Author: Manomenov Ivan
+
+Lab: Lab4
+
+Date of create: 15.06.25
+
+# Ход работы
 Запускаем вм
 
    ![image](https://github.com/user-attachments/assets/b94c0b88-762a-4fcd-aae9-9e59af88327d)
 
 
-**Implementing Basic Forwarding:**
-1. С коробки ```make run``` естественно блять не работает. Нужно:
+## Implementing Basic Forwarding:
+1. С коробки ```make run``` естественно (как обычно) не работает. Нужно:
     - В utils/Makefile в строке с build/basic.p4.p4info.txtpb заменить .txtpb на .txt
     - Во всех json в triandle-pogo в строке с build/basic.p4.p4info.txtpb заменить .txtpb на .txt
     - Во всех json в pod-topo в строке с build/basic.p4.p4info.txtpb заменить .txtpb на .txt
-    - Проверяем командой ```grep -r --include='*' 'txtpb' .```, что этой ебанной хуйни не осталось
+    - Проверяем командой ```grep -r --include='*' 'txtpb' .```, что этих расширений не осталось
 2. Запускаем ```make run``` и пингуем (ожидаемо не пингуется):
 
     ![image](https://github.com/user-attachments/assets/a32e53b8-05bc-4663-b42a-192628cd40ab)
@@ -81,13 +97,13 @@
        }
    }
    ```
-5. Проверяем, что пингуется (алилуя блять)
+5. Проверяем, что пингуется (алилуя)
 
    ![image](https://github.com/user-attachments/assets/a298f2f7-df42-40e5-b5ea-40b49113bac3)
 
 
-**Implementing Basic Tunneling**:
-1. Снова исправляем json'ы, чтобы заработало блять
+## Implementing Basic Tunneling:
+1. Снова исправляем json'ы, чтобы заработало
 2. Правим TODO'шки в скрипте [basic_tunnel.p4](https://github.com/IvanManomenov/network_programming_k3323_Manomenov_Ivan/blob/main/lab4/basic_tunnel.p4):
    ```
    parser MyParser(packet_in packet,
