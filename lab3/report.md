@@ -1,4 +1,20 @@
-# Ход работы:
+University: [ITMO University](https://itmo.ru/ru/)
+
+Faculty: [FICT](https://fict.itmo.ru)
+
+Course: [Network programming](https://itmo-ict-faculty.github.io/network-programming)
+
+Year: 2024/2025
+
+Group: K3323
+
+Author: Manomenov Ivan
+
+Lab: Lab1
+
+Date of create: 08.06.25
+
+# Ход работы
 1. Проверяем связанность:
    
 ![image](https://github.com/user-attachments/assets/c37ed251-1611-4bfc-918c-1bc443f53fc0)
@@ -24,7 +40,7 @@
 
    ![image](https://github.com/user-attachments/assets/36ca3bcf-b081-4b61-8ce2-9f0b34b55e82)
 
-5. Сбор данных из netbox:
+4. Сбор данных из netbox:
    Playbook:
    
    ```
@@ -51,33 +67,33 @@
 
    Получили данные об устройствах в [devices.json](https://github.com/IvanManomenov/network_programming_k3323_Manomenov_Ivan/blob/main/lab3/devices.json)
 
-6. Настройка CHR на основе данных Netbox
-   6.1 Настроим инвентарь, как в прошлой лабе [hosts.ini](https://github.com/IvanManomenov/network_programming_k3323_Manomenov_Ivan/blob/main/lab2/hosts.ini)
+5. Настройка CHR на основе данных Netbox
+   5.1 Настроим инвентарь, как в прошлой лабе [hosts.ini](https://github.com/IvanManomenov/network_programming_k3323_Manomenov_Ivan/blob/main/lab2/hosts.ini)
    
-   6.2 Заведем playbook [netbox_to_chr.yml](https://github.com/IvanManomenov/network_programming_k3323_Manomenov_Ivan/blob/main/lab3/netbox_to_chr.yml)
+   5.2 Заведем playbook [netbox_to_chr.yml](https://github.com/IvanManomenov/network_programming_k3323_Manomenov_Ivan/blob/main/lab3/netbox_to_chr.yml)
    
-   6.3 Запускаем
+   5.3 Запускаем
 
    ![image](https://github.com/user-attachments/assets/cd80e44f-ecb6-4072-8158-b564f531e46e)
 
-   6.4 Проверяем, что поменялось имя и добавился IP:
+   5.4 Проверяем, что поменялось имя и добавился IP:
 
    ![image](https://github.com/user-attachments/assets/837f31aa-06ed-44a9-9b49-0c37676dec4c)
 
-7. Добавление серийного номера в Netboox:
+6. Добавление серийного номера в Netboox:
    
-   7.1 Создадим playbook [update_serial.yml](https://github.com/IvanManomenov/network_programming_k3323_Manomenov_Ivan/blob/main/lab3/update_serial.yml)
+   6.1 Создадим playbook [update_serial.yml](https://github.com/IvanManomenov/network_programming_k3323_Manomenov_Ivan/blob/main/lab3/update_serial.yml)
    
-   7.2 Запустим
+   6.2 Запустим
 
    ![image](https://github.com/user-attachments/assets/066b9511-1cd8-42bc-92ee-0e02e4692f48)
 
-   7.3 Проверим, что серийный номер поменялся
+   6.3 Проверим, что серийный номер поменялся
 
    ![image](https://github.com/user-attachments/assets/94702208-a510-4dcb-9392-612e880fd5b8)
    ![image](https://github.com/user-attachments/assets/b9d5c986-9bc8-4c21-ac30-c23fcf1880ce)
 
-8. Схема:
+7. Схема:
    
 ![image](https://github.com/user-attachments/assets/c8431eac-96a8-4825-8a22-c43e5bb6b852)
 
