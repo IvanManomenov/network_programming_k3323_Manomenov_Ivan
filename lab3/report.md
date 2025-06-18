@@ -68,6 +68,7 @@ Date of create: 08.06.25
    Получили данные об устройствах в [devices.json](https://github.com/IvanManomenov/network_programming_k3323_Manomenov_Ivan/blob/main/lab3/devices.json)
 
 5. Настройка CHR на основе данных Netbox
+   
    5.1 Настроим инвентарь, как в прошлой лабе [hosts.ini](https://github.com/IvanManomenov/network_programming_k3323_Manomenov_Ivan/blob/main/lab2/hosts.ini)
    
    5.2 Заведем playbook [netbox_to_chr.yml](https://github.com/IvanManomenov/network_programming_k3323_Manomenov_Ivan/blob/main/lab3/netbox_to_chr.yml)
@@ -80,7 +81,7 @@ Date of create: 08.06.25
 
    ![image](https://github.com/user-attachments/assets/837f31aa-06ed-44a9-9b49-0c37676dec4c)
 
-6. Добавление серийного номера в Netboox:
+7. Добавление серийного номера в Netboox:
    
    6.1 Создадим playbook [update_serial.yml](https://github.com/IvanManomenov/network_programming_k3323_Manomenov_Ivan/blob/main/lab3/update_serial.yml)
    
@@ -93,7 +94,7 @@ Date of create: 08.06.25
    ![image](https://github.com/user-attachments/assets/94702208-a510-4dcb-9392-612e880fd5b8)
    ![image](https://github.com/user-attachments/assets/b9d5c986-9bc8-4c21-ac30-c23fcf1880ce)
 
-7. Схема:
+8. Схема:
    
 ![image](https://github.com/user-attachments/assets/c8431eac-96a8-4825-8a22-c43e5bb6b852)
 
